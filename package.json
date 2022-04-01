@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Justin McMurdie",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.14.0"
+  }
 }
