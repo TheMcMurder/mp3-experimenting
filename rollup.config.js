@@ -24,6 +24,7 @@ export default {
     }),
     commonjs(),
     postcss({
+      extract: `styles.css`,
       plugins: [],
     }),
     replace({

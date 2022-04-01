@@ -4,7 +4,7 @@ export default function Root () {
   return (
     <div className='italic'>
       yolo
-      <span className='red-500'>Red</span>
+      <span className='text-red-500'>Red</span>
 
     </div>
   )
