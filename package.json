@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Justin McMurdie",
   "license": "ISC",
   "engines": {
     "node": ">=16.14.0"
+  },
+  "dependencies": {
+    "ffmetadata": "^1.7.0"
   }
 }
