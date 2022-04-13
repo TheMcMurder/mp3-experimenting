@@ -4,7 +4,9 @@ export default function Files ({setFiles}) {
   return (
     <div className='block px-4 bg-red:100'>
       <input type='file' multiple onChange={(e) => {
-        setFiles([...e.target.files])
+        const files = [...e.target.files]
+        console.log('files', files)
+        setFiles(files)
       }}></input>
     </div>
   )

@@ -16,9 +16,11 @@
     "node": ">=16.14.0"
   },
   "dependencies": {
+    "@xstate/react": "^3.0.0",
     "ffmetadata": "^1.7.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "xstate": "^4.31.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
