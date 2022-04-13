@@ -1,13 +1,11 @@
 import React, {useEffect} from 'react'
-import EditMetaDataForm from './forms/edit-metadata-form.jsx'
+import EditMetaDataFlow from './forms/edit-metadata-flow.jsx'
 
 export default function Root () {
+  console.log('window.debugInfo', window.debugInfo)
   return (
-    <div className='italic'>
-      yolo
-      <span className='text-red-500'>Red</span>
-      <EditMetaDataForm />
-
+    <div className='relative'>
+      <EditMetaDataFlow />
     </div>
   )
 }
