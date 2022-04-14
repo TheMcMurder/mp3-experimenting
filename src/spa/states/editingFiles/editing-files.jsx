@@ -1,22 +1,23 @@
 import React, { useEffect, useReducer, useState } from 'react'
+import { useMetadataServiceContext, usePartMetadataState, isOnState } from '../../helpers/useGlobalContext.jsx'
 import EditMetaDataForm from './edit-metadata-form.jsx'
 import SingleFile from './single-file.jsx'
 
 export default function EditingFiles (props) {
-  const { files, send, state } = props
-  console.log('render', state && state.context)
+  const isProcessingFiles = isOnState('editingFiles.processingFiles')
+  const isEditingFiles = isOnState('editingFiles.editing')
   return (
     <div>
       {
-        state.matches('editingFiles.processingFiles') && (
+        isProcessingFiles && (
           <div>
             loading...
           </div>
         )
       }
       {
-        state.matches('editingFiles.editing') && (
-          <EditMetaDataForm combinedMetadata={state.context.fileMeta}/>
+        isEditingFiles && (
+          <EditMetaDataForm />
         )
       }
     </div>

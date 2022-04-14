@@ -5,6 +5,7 @@ export function processAndCombineFilesMetadata(files = []) {
       return window.electronMain.getMetaDataFromFile(file.path)
     })
   ).then(filesMeta => {
+    console.log('filesMeta', filesMeta)
     return filesMeta.reduce((acc, curr) => {
       Object.entries(curr).forEach(entry => {
         const [key, value] = entry

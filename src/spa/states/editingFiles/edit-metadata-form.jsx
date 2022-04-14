@@ -1,6 +1,9 @@
 import React from 'react'
+import { usePartMetadataState } from '../../helpers/useGlobalContext.jsx'
 
-export default function EditMetaDataForm({combinedMetadata}) {
+export default function EditMetaDataForm(props) {
+  const combinedMetadata = usePartMetadataState(combinedMetadataAccessor)
+  console.log('combinedMetadata', combinedMetadata)
   return (
     <div>
       <form>
@@ -19,4 +22,8 @@ export default function EditMetaDataForm({combinedMetadata}) {
       </form>
     </div>
   )
+}
+
+function combinedMetadataAccessor (state) {
+  return state.context.fileMeta
 }

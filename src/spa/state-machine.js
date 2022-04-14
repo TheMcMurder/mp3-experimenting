@@ -28,7 +28,10 @@ export const fileMetadataMachine = createMachine(
               src: (context, event) => combineFilesMetaData(context.files),
               onDone: {
                 target: 'editing',
-                actions: assign({ fileMeta: (context, event) => event.data })
+                actions: assign({ fileMeta: (context, event) => {
+                  console.log('event', event)
+                  return event.data
+                }})
               },
               onError: {
                 target: 'errorProcessing'
@@ -62,5 +65,6 @@ export const fileMetadataMachine = createMachine(
 )
 
 function combineFilesMetaData (files) {
+  console.log('!!files', files)
   return promiseWithMinTimeWait(processAndCombineFilesMetadata(files))
 }
