@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Files from './forms/files.jsx'
-import EditFilesMetaDataForm from './forms/edit-files-metadata-form.jsx'
+import EditingFiles from './states/editingFiles/editing-files.jsx'
 import Card from './atoms/Card.jsx'
 import Header from './header/Header.jsx'
 import { fileMetadataMachine } from './state-machine.js'
@@ -18,9 +18,11 @@ export default function EditMetaDataFlow(props) {
           <form>
             <Files setFiles={(files) => send('SELECT_FILES', { files })} />
           </form>
-          {files.length > 0 && (
-            <EditFilesMetaDataForm files={files} />
-          )}
+          {
+            state.matches('editingFiles') && (
+              <EditingFiles files={files} send={send} state={state} />
+            )
+          }
         </Card>
       </MainContent>
 
