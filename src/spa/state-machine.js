@@ -29,7 +29,6 @@ export const fileMetadataMachine = createMachine(
               onDone: {
                 target: 'editing',
                 actions: assign({ fileMeta: (context, event) => {
-                  console.log('event', event)
                   return event.data
                 }})
               },

@@ -3,7 +3,6 @@ import { usePartMetadataState } from '../../helpers/useGlobalContext.jsx'
 
 export default function EditMetaDataForm(props) {
   const combinedMetadata = usePartMetadataState(combinedMetadataAccessor)
-  console.log('combinedMetadata', combinedMetadata)
   return (
     <div>
       <form>
