@@ -6,6 +6,7 @@ import SingleFile from './single-file.jsx'
 export default function EditingFiles (props) {
   const isProcessingFiles = isOnState('editingFiles.processingFiles')
   const isEditingFiles = isOnState('editingFiles.editing')
+  const isWritingMetadata = isOnState('editingFiles.writingMetadata')
   return (
     <div>
       {
@@ -18,6 +19,13 @@ export default function EditingFiles (props) {
       {
         isEditingFiles && (
           <EditMetaDataForm />
+        )
+      }
+      {
+        isWritingMetadata && (
+          <div>
+            writing metadata...
+          </div>
         )
       }
     </div>

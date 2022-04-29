@@ -1,6 +1,7 @@
 import { createMachine, assign } from 'xstate'
 import { processAndCombineFilesMetadata } from './helpers/processFilesMetadata'
 import { promiseWithMinTimeWait } from './helpers/promiseWithMinTimeWait'
+import { writeMetadataToFiles } from './helpers/writeMetadataToFiles'
 
 export const fileMetadataMachine = createMachine(
   {
@@ -8,7 +9,8 @@ export const fileMetadataMachine = createMachine(
     initial: 'welcome',
     context: {
       files: [],
-      fileMeta: {}
+      fileMeta: {},
+      finalMetadata: {},
     },
     states: {
       welcome: {
@@ -38,11 +40,30 @@ export const fileMetadataMachine = createMachine(
             },
           },
           editing: {
+            on: {
+              WRITE_METADATA: {
+                actions: ['writeMetaData'],
+                target: 'writingMetadata'
+              }
+            }
+          },
+          writingMetadata: {
+            invoke: {
+              id: 'writeMetadataFromSelectedContext',
+              src: (context, event) => writeMetaData(context.files, context.finalMetadata),
+              onDone: {
+                target: '#finished'
+              }
+            }
           },
           errorProcessing: {
 
           }
         }
+      },
+      finished: {
+        id: 'finished'
+
       }
     },
   },
@@ -53,10 +74,10 @@ export const fileMetadataMachine = createMachine(
           files: event.files
         }
       }),
-      processFiles: assign((context, event) => {
-        console.log('context', context)
+      writeMetaData: assign((context, event) => {
+        console.log('event', event)
         return {
-          fileMeta: {}
+          finalMetadata: event.metadata
         }
       })
     },
@@ -66,4 +87,10 @@ export const fileMetadataMachine = createMachine(
 function combineFilesMetaData (files) {
   console.log('!!files', files)
   return promiseWithMinTimeWait(processAndCombineFilesMetadata(files))
+}
+
+function writeMetaData (files, finalMetadata) {
+  console.log('!!!files', files)
+  console.log('!!!finalMetaData', finalMetadata)
+  return promiseWithMinTimeWait(writeMetadataToFiles(files, finalMetadata))
 }

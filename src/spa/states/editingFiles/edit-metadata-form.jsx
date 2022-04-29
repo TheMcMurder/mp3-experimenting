@@ -1,9 +1,20 @@
 import React from 'react'
-import { usePartMetadataState } from '../../helpers/useGlobalContext.jsx'
+import { usePartMetadataState, useFileMetadataServiceSend } from '../../helpers/useGlobalContext.jsx'
 import Form, { SectionTitle, SectionContents, Section, Field, TextInput, PhotoInput} from '../../forms/Form.jsx'
 
-export default function EditMetaDataForm(props) {
+export default function EditMetaDataForm() {
   const combinedMetadata = usePartMetadataState(combinedMetadataAccessor)
+  const sendToStateMachine = useFileMetadataServiceSend()
+  const handleSubmit = (values) => {
+    console.log('submit', values)
+    const metadata = {
+      album: values['book-title'],
+      artist: values.author,
+      comment: values.summary,
+      genre: 183,
+    }
+    sendToStateMachine({ type: 'WRITE_METADATA', metadata })
+  }
   console.log('combinedMetadata', combinedMetadata)
   return (
     <div>
@@ -32,13 +43,13 @@ export default function EditMetaDataForm(props) {
             >
               <TextInput />
             </Field>
-            <Field
+            {/* <Field
               name='book-cover'
               label='Book Cover'
               // initialValue={getFirstCombinedValue(combinedMetadata.comment)}
             >
               <PhotoInput />
-            </Field>
+            </Field> */}
           </SectionContents>
         </Section>
         <Section>
@@ -54,11 +65,6 @@ export default function EditMetaDataForm(props) {
       </Form>
     </div>
   )
-}
-
-function handleSubmit (values) {
-  // console.log('args', arguments)
-  console.log('submit', values)
 }
 
 function getFirstCombinedValue (arrayOfValues = []) {

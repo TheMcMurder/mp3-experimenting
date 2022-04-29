@@ -17,7 +17,8 @@ export default function Form({ children, onSubmit, validate }) {
             className="space-y-8 divide-y divide-gray-200"
             onSubmit={handleSubmit}
           >
-            <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
+            <
+              div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
               <div>
                 {sections}
               </div>

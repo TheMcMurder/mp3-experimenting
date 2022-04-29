@@ -1,5 +1,5 @@
 const { contextBridge } = require('electron')
-const { readMetaData } = require('./ffmetapromise')
+const { readMetaData, writeMetaData } = require('./ffmetapromise')
 
 contextBridge.exposeInMainWorld(
   'debugInfo',
@@ -16,6 +16,10 @@ contextBridge.exposeInMainWorld(
     getMetaDataFromFile: (file) => {
       return readMetaData(file)
     },
+    writeMetaData: (file, metadata) => {
+      console.log('writeMetaData', writeMetaData)
+      return writeMetaData(file, metadata)
+    }
   }
 )
 
