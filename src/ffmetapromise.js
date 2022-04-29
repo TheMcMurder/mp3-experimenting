@@ -1,6 +1,6 @@
 const ffmetadata = require('ffmetadata')
 
-function readMetaData(filePath) {
+function readMetadata(filePath) {
   console.log('filepath', filePath)
   return new Promise((res, rej) => {
     ffmetadata.read(filePath, function (err, data) {
@@ -12,7 +12,7 @@ function readMetaData(filePath) {
   })
 }
 
-function writeMetaData(filePath, metadata) {
+function writeMetadata(filePath, metadata) {
   return new Promise((res, rej) => {
     ffmetadata.write(filePath, metadata, function(err) {
       if (err) {
@@ -25,6 +25,6 @@ function writeMetaData(filePath, metadata) {
 }
 
 module.exports = {
-  readMetaData,
-  writeMetaData
+  readMetadata,
+  writeMetadata
 }

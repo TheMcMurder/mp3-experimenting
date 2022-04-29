@@ -1,7 +1,7 @@
 
 export function writeMetadataToFiles(files = [], fileMetadata) {
   return Promise.all(
-    files.map(file => window.electronMain.writeMetaData(file.path, fileMetadata))
+    files.map(file => window.electronMain.writeMetadata(file.path, fileMetadata))
   )
 }
 

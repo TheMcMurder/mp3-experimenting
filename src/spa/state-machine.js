@@ -26,8 +26,8 @@ export const fileMetadataMachine = createMachine(
         states: {
           processingFiles: {
             invoke: {
-              id: 'getCombinedMetaDataForFiles',
-              src: (context, event) => combineFilesMetaData(context.files),
+              id: 'getCombinedMetadataForFiles',
+              src: (context, event) => combineFilesMetadata(context.files),
               onDone: {
                 target: 'editing',
                 actions: assign({ fileMeta: (context, event) => {
@@ -42,7 +42,7 @@ export const fileMetadataMachine = createMachine(
           editing: {
             on: {
               WRITE_METADATA: {
-                actions: ['writeMetaData'],
+                actions: ['writeMetadata'],
                 target: 'writingMetadata'
               }
             }
@@ -50,7 +50,7 @@ export const fileMetadataMachine = createMachine(
           writingMetadata: {
             invoke: {
               id: 'writeMetadataFromSelectedContext',
-              src: (context, event) => writeMetaData(context.files, context.finalMetadata),
+              src: (context, event) => writeMetadata(context.files, context.finalMetadata),
               onDone: {
                 target: '#finished'
               }
@@ -74,7 +74,7 @@ export const fileMetadataMachine = createMachine(
           files: event.files
         }
       }),
-      writeMetaData: assign((context, event) => {
+      writeMetadata: assign((context, event) => {
         console.log('event', event)
         return {
           finalMetadata: event.metadata
@@ -84,13 +84,13 @@ export const fileMetadataMachine = createMachine(
   }
 )
 
-function combineFilesMetaData (files) {
+function combineFilesMetadata (files) {
   console.log('!!files', files)
   return promiseWithMinTimeWait(processAndCombineFilesMetadata(files))
 }
 
-function writeMetaData (files, finalMetadata) {
+function writeMetadata (files, finalMetadata) {
   console.log('!!!files', files)
-  console.log('!!!finalMetaData', finalMetadata)
+  console.log('!!!finalMetadata', finalMetadata)
   return promiseWithMinTimeWait(writeMetadataToFiles(files, finalMetadata))
 }

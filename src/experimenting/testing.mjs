@@ -1,5 +1,5 @@
 import path from 'path'
-import { readMetaData, writeMetaData } from './ffmetapromise.mjs'
+import { readMetadata, writeMetadata } from './ffmetapromise.mjs'
 
 const testFile = path.resolve('../../../Downloads/The Beekeepers Lament/The Beekeeper_s Lament-Part03.mp3')
 // console.log('*******************')
@@ -19,15 +19,15 @@ const testFile = path.resolve('../../../Downloads/The Beekeepers Lament/The Beek
 
 
 const audioBookGenre = 183
-const newMetaData = getNewMetaData()
+const newMetadata = getNewMetadata()
 
-writeMetaData(testFile, newMetaData).then((res) => {
+writeMetadata(testFile, newMetadata).then((res) => {
   console.log('yay')
-}).then(() => readMetaData(testFile)).then(response => {
+}).then(() => readMetadata(testFile)).then(response => {
   console.log('response', response)
 })
 
-function getNewMetaData() {
+function getNewMetadata() {
   return {
     album: "The Beekeeper's Lament",
     genre: audioBookGenre,

@@ -6,7 +6,7 @@ import Header from './header/Header.jsx'
 import Listbox from './forms/Listbox.jsx'
 import { useMetadataState } from './helpers/useGlobalContext.jsx'
 
-export default function EditMetaDataFlow(props) {
+export default function EditMetadataFlow(props) {
   const [ state, send ] = useMetadataState()
   return (
     <div>

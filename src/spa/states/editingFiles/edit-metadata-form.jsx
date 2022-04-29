@@ -2,7 +2,7 @@ import React from 'react'
 import { usePartMetadataState, useFileMetadataServiceSend } from '../../helpers/useGlobalContext.jsx'
 import Form, { SectionTitle, SectionContents, Section, Field, TextInput, PhotoInput} from '../../forms/Form.jsx'
 
-export default function EditMetaDataForm() {
+export default function EditMetadataForm() {
   const combinedMetadata = usePartMetadataState(combinedMetadataAccessor)
   const sendToStateMachine = useFileMetadataServiceSend()
   const handleSubmit = (values) => {

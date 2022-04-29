@@ -2,7 +2,7 @@
 export function processAndCombineFilesMetadata(files = []) {
   return Promise.all(
     files.filter(file => file && file.path !== undefined).map(file => {
-      return window.electronMain.getMetaDataFromFile(file.path)
+      return window.electronMain.getMetadataFromFile(file.path)
     })
   ).then(filesMeta => {
     console.log('filesMeta', filesMeta)

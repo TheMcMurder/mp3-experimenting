@@ -1,6 +1,6 @@
 import ffmetadata from 'ffmetadata'
 
-export function readMetaData(filePath) {
+export function readMetadata(filePath) {
   return new Promise((res, rej) => {
     ffmetadata.read(filePath, function (err, data) {
       if (err) {
@@ -11,7 +11,7 @@ export function readMetaData(filePath) {
   })
 }
 
-export function writeMetaData(filePath, metadata) {
+export function writeMetadata(filePath, metadata) {
   return new Promise((res, rej) => {
     ffmetadata.write(filePath, metadata, function(err) {
       if (err) {
@@ -23,8 +23,8 @@ export function writeMetaData(filePath, metadata) {
   })
 }
 
-export function writeMetaDataFromOldMetaData(filePath, metadataPredicateFn) {
-  return readMetaData(filePath).then((metadata) => {
+export function writeMetadataFromOldMetadata(filePath, metadataPredicateFn) {
+  return readMetadata(filePath).then((metadata) => {
     return metadataPredicateFn(metadata)
-  }).then((newMetaData) => writeMetaData(filePath, newMetaData))
+  }).then((newMetadata) => writeMetadata(filePath, newMetadata))
 }
