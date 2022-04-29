@@ -5,9 +5,6 @@ import { GlobalStateContext } from '../globalStateContext.jsx'
 
 export function useMetadataState () {
   const globalServices = useContext(GlobalStateContext);
-  console.log('globalServices', globalServices)
-  const test = useActor(globalServices.fileMetadataService)
-  console.log('test', test)
   return useActor(globalServices.fileMetadataService);
 }
 
