@@ -1,9 +1,10 @@
 import React from 'react'
 import { usePartMetadataState } from '../../helpers/useGlobalContext.jsx'
-import Form, { SectionTitle, SectionContents, Section, Field, TextInput} from '../../forms/Form.jsx'
+import Form, { SectionTitle, SectionContents, Section, Field, TextInput, PhotoInput} from '../../forms/Form.jsx'
 
 export default function EditMetaDataForm(props) {
   const combinedMetadata = usePartMetadataState(combinedMetadataAccessor)
+  console.log('combinedMetadata', combinedMetadata)
   return (
     <div>
       <Form onSubmit={handleSubmit}>
@@ -30,6 +31,13 @@ export default function EditMetaDataForm(props) {
               initialValue={getFirstCombinedValue(combinedMetadata.comment)}
             >
               <TextInput />
+            </Field>
+            <Field
+              name='book-cover'
+              label='Book Cover'
+              // initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <PhotoInput />
             </Field>
           </SectionContents>
         </Section>
