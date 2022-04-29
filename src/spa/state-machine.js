@@ -18,7 +18,7 @@ export const fileMetadataMachine = createMachine(
           SELECT_FILES: {
             actions: ['selectFiles'],
             target: 'editingFiles'
-          }
+          },
         }
       },
       editingFiles: {
@@ -62,13 +62,26 @@ export const fileMetadataMachine = createMachine(
         }
       },
       finished: {
-        id: 'finished'
+        id: 'finished',
+        on: {
+          START_OVER: {
+            actions: ['resetContext'],
+            target: 'welcome',
+          }
+        }
 
       }
     },
   },
   {
     actions: {
+      actions: assign((context) => {
+        return {
+          files: [],
+          fileMeta: {},
+          finalMetadata: {}
+        }
+      }),
       selectFiles: assign((context, event) => {
         return {
           files: event.files

@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Files from './forms/files.jsx'
 import EditingFiles from './states/editingFiles/editing-files.jsx'
-import Card from './atoms/Card.jsx'
 import Header from './header/Header.jsx'
-import Listbox from './forms/Listbox.jsx'
+import Finished from './states/Finished/Finished.jsx'
+import Button from './atoms/Button.jsx'
 import { useMetadataState } from './helpers/useGlobalContext.jsx'
 
 export default function EditMetadataFlow(props) {
@@ -14,12 +14,19 @@ export default function EditMetadataFlow(props) {
       <MainContent>
         {
           state.matches('welcome') && (
-            <Files setFiles={(files) => send({type: 'SELECT_FILES', files })} />
+            <>
+              <Files setFiles={(files) => send({type: 'SELECT_FILES', files })} />
+            </>
           )
         }
         {
           state.matches('editingFiles') && (
             <EditingFiles />
+          )
+        }
+        {
+          state.matches('finished') && (
+            <Finished />
           )
         }
       </MainContent>
