@@ -61,7 +61,17 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./build/icons/icon"
+        "icon": "./build/icons/icon",
+        "ignore": [
+          "src/experimenting/",
+          "src/spa/",
+          "src/images/",
+          ".git",
+          "node_modules/.bin",
+          "node_modules/electron",
+          "node_modules/electron-prebuilt",
+          "node_modules/electron-prebuilt-compile"
+        ]
       },
       "makers": [
         {
