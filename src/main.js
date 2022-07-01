@@ -2,11 +2,13 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
+const devMode = !app.isPackaged
+
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 900,
+    width: devMode ? 1200 : 800,
+    height: devMode ? 900 : 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -16,7 +18,7 @@ function createWindow() {
   mainWindow.loadFile(`${__dirname}/index.html`)
 
   // Open the DevTools.
-  if (!app.isPackaged) {
+  if (devMode) {
     mainWindow.webContents.openDevTools()
   }
 }
