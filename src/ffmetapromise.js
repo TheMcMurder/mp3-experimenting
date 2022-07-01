@@ -1,4 +1,6 @@
 const ffmetadata = require('ffmetadata')
+const ffmpeg = require('ffmpeg-static-electron')
+ffmetadata.setFfmpegPath(ffmpeg.path)
 
 function readMetadata(filePath) {
   console.log('filepath', filePath)

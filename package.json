@@ -21,6 +21,7 @@
     "@xstate/react": "^3.0.0",
     "concat-stream": "^2.0.0",
     "ffmetadata": "^1.7.0",
+    "ffmpeg-static-electron": "^2.0.3",
     "final-form": "^4.20.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
