@@ -1,4 +1,6 @@
-# mp3-experimenting
+# Audiobook metadata manager
+
+Managing metadata for audiobooks sucks, each application has it's own file to manage the metadata so you often have to edit the metadata in iTunes, Apple Books, Plex, and wherever you store your audiobook files. This project aims to simplify metadata management by editing the metadata on the files themselves which iTunes, Apple Books, and others use to prepopulate their application specific metadata. In theory this will solve most of your metadata management woes.
 
 
 ## Dev notes
