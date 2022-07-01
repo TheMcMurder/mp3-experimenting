@@ -7,6 +7,7 @@ contextBridge.exposeInMainWorld(
     node: process.versions['node'],
     chrome: process.versions['chrome'],
     electron: process.versions['electron'],
+    applicationVersion: process.env.npm_package_version,
   }
 )
 

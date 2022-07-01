@@ -30,17 +30,6 @@ export default {
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
-    // !production &&
-    //   serve({
-    //     contentBase: [`${outputPath}`],
-    //     port: 10023,
-    //     historyApiFallback: true,
-    //     headers: {
-    //       'Access-Control-Allow-Origin': '*',
-    //     },
-    //   }),
-    // !production && livereload(outputPath),
-    // production && terser(),
   ],
   watch: {
     clearScreen: false,
