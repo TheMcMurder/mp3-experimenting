@@ -3,6 +3,7 @@ import ffmetadata from 'ffmetadata'
 export function readMetadata(filePath) {
   return new Promise((res, rej) => {
     ffmetadata.read(filePath, function (err, data) {
+      console.log('data', data)
       if (err) {
         rej(err)
       }

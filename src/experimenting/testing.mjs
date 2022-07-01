@@ -1,7 +1,9 @@
 import path from 'path'
 import { readMetadata, writeMetadata } from './ffmetapromise.mjs'
 
-const testFile = path.resolve('../../../Downloads/The Beekeepers Lament/The Beekeeper_s Lament-Part03.mp3')
+const testFile = path.resolve('../../../Desktop/The Beekeepers Lament/The Beekeeper_s Lament-Part03.mp3')
+console.log('testFile', testFile)
+// const testFile = path.resolve('../../../Downloads/The Beekeepers Lament/The Beekeeper_s Lament-Part03.mp3')
 // console.log('*******************')
 // console.log('*******************')
 // console.log('*******************')
@@ -26,6 +28,10 @@ writeMetadata(testFile, newMetadata).then((res) => {
 }).then(() => readMetadata(testFile)).then(response => {
   console.log('response', response)
 })
+
+// readMetadata(testFile).then(response => {
+//   console.log('response', response)
+// })
 
 function getNewMetadata() {
   return {
