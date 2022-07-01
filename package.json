@@ -66,8 +66,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./build/icons/icon.icns",
-        "all": true
+        "icon": "./build/icons/icon"
       },
       "makers": [
         {
@@ -78,14 +77,13 @@
         },
         {
           "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin",
-            "windows"
-          ]
+          "platforms": ["darwin", "win32", "linux"]
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "icon": "./build/icons/512x512.png"
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",
