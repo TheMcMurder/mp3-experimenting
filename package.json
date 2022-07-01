@@ -24,7 +24,6 @@
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
     "@xstate/react": "^3.0.0",
-    "concat-stream": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "ffmetadata": "^1.7.0",
     "ffmpeg-static-electron": "^2.0.3",
@@ -32,10 +31,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-final-form": "^6.5.9",
-    "split": "^1.0.1",
-    "stream-combiner": "^0.2.2",
-    "stream-filter": "^2.1.0",
-    "through": "^2.3.8",
     "xstate": "^4.31.0"
   },
   "devDependencies": {
@@ -76,8 +71,7 @@
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": ["darwin", "win32", "linux"]
+          "name": "@electron-forge/maker-zip"
         },
         {
           "name": "@electron-forge/maker-deb",
