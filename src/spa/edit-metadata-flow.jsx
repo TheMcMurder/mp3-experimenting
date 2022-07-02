@@ -9,7 +9,7 @@ import { useMetadataState } from './helpers/useGlobalContext.jsx'
 export default function EditMetadataFlow(props) {
   const [ state, send ] = useMetadataState()
   return (
-    <div className='h-screen w-screen flex flex-col'>
+    <div className='bg-gray-200 h-screen w-full'>
       <Header />
       <MainContent>
         {
@@ -37,9 +37,9 @@ export default function EditMetadataFlow(props) {
 
 function MainContent({ children }) {
   return (
-    <div className='w-full h-full bg-gray-200 flex justify-center items-center m-auto'>
-      <main className="-mt-32">
-        <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+    <div className='bg-gray-200 flex justify-center items-center m-auto flex-1 '>
+      <main className="">
+        <div className="max-w-7xl mx-auto p-12 px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
             {children}
           </div>

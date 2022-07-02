@@ -43,6 +43,48 @@ export default function EditMetadataForm() {
             >
               <TextInput />
             </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
+            <Field
+              name='summary'
+              label='Book Summary'
+              initialValue={getFirstCombinedValue(combinedMetadata.comment)}
+            >
+              <TextInput />
+            </Field>
             {/* <Field
               name='book-cover'
               label='Book Cover'
