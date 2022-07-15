@@ -1,0 +1,13 @@
+diff --git a/node_modules/ffmetadata/index.js b/node_modules/ffmetadata/index.js
+index 3bdb3ed..71239bf 100644
+--- a/node_modules/ffmetadata/index.js
++++ b/node_modules/ffmetadata/index.js
+@@ -152,7 +152,7 @@ function spawnRead(args) {
+ function getWriteArgs(src, dst, data, options) {
+ 	// ffmpeg options
+ 	var inputs = ["-i", src], // src input
+-		maps = ['-map', '0:0'], // set as the first
++		maps = ['-map', '0'], // set as the first
+ 		args = ["-y"]; // overwrite file
+ 
+ 	// Attach additional input files if included

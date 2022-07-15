@@ -51,6 +51,7 @@
     "autoprefixer": "^10.4.4",
     "concurrently": "^7.0.0",
     "electron": "^18.0.1",
+    "patch-package": "^6.4.7",
     "postcss": "^8.4.12",
     "rollup": "^2.70.1",
     "rollup-plugin-postcss": "^4.0.2",
