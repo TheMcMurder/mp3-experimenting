@@ -3,7 +3,6 @@ const ffmpeg = require('ffmpeg-static-electron')
 ffmetadata.setFfmpegPath(ffmpeg.path)
 
 function readMetadata(filePath) {
-  console.log('filepath', filePath)
   return new Promise((res, rej) => {
     ffmetadata.read(filePath, function (err, data) {
       if (err) {
