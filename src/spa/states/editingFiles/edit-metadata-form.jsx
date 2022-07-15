@@ -1,5 +1,6 @@
 import React from 'react'
 import { usePartMetadataState, useFileMetadataServiceSend } from '../../helpers/useGlobalContext.jsx'
+import Button from '../../atoms/Button.jsx'
 import Form, { SectionTitle, SectionContents, Section, Field, TextInput, PhotoInput} from '../../forms/Form.jsx'
 
 export default function EditMetadataForm() {
@@ -54,12 +55,21 @@ export default function EditMetadataForm() {
         </Section>
         <Section>
           <div className='pt-5 flex justify-end'>
-            <button
-              className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <Button
+              styleType='secondary'
+              type='button'
+              onClick={() => {
+                sendToStateMachine({ type: 'CANCEL'})
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              styleType='primary'
               type='submit'
             >
               Submit
-            </button>
+            </Button>
           </div>
         </Section>
       </Form>

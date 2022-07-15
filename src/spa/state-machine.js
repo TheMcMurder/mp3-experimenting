@@ -14,6 +14,7 @@ export const fileMetadataMachine = createMachine(
     },
     states: {
       welcome: {
+        id: 'welcome',
         on: {
           SELECT_FILES: {
             actions: ['selectFiles'],
@@ -44,6 +45,10 @@ export const fileMetadataMachine = createMachine(
               WRITE_METADATA: {
                 actions: ['writeMetadata'],
                 target: 'writingMetadata'
+              },
+              CANCEL: {
+                actions: ['resetContext'],
+                target: '#welcome'
               }
             }
           },
@@ -75,7 +80,7 @@ export const fileMetadataMachine = createMachine(
   },
   {
     actions: {
-      actions: assign((context) => {
+      resetContext: assign((context) => {
         return {
           files: [],
           fileMeta: {},
